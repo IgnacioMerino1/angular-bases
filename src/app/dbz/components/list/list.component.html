@@ -1,0 +1,38 @@
+<h4>Listado</h4>
+<ul class="list-group">
+    <li *ngFor="let caracter of listaPersonajes; 
+        let i = index;
+        let esPrimero = first
+        let esUltimo = last
+        let esPar = even
+        let esImpar = odd
+        "
+        class="list-group-item d-flex justify-content-between align-items-center {{ i===0 ? 'list-group-item-success' : '' }}" 
+        [ngClass]="{ 
+            'list-group-item-dark':esUltimo,
+            'list-group-item-info':esImpar 
+        }">
+
+        <div>
+            <span class="text-primary"> {{ i+1 }}.</span>
+            <span>{{ caracter.name }} - </span>
+            <strong>Power: </strong>
+            <span>{{ caracter.power }}</span>
+
+        <!--
+        <span> Primero: {{ i === 0 }} </span>
+        <span> Ultimo: {{ i === listaPersonajes.length -1 }} </span>
+        <span> Primero: {{ esPrimero }} </span>
+        <span> Ultimo: {{ esUltimo }} </span>
+
+        <span> Par: {{ esPar }} </span>
+        <span> Impar: {{ esImpar }} </span>
+        -->
+        </div>
+
+        <button class="btn btn-danger" (click)="onDeletePersonaje(caracter.id)">X</button>
+
+    </li>
+</ul>
+
+ 
